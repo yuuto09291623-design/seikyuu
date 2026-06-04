@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="請求書">
+<meta name="theme-color" content="#27344d">
+<title>車検・整備 請求書作成</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAEaklEQVR4nO3dP3IcRRjG4VkXVRyCA5gcOyMiI5A5jU/BaUABGZEz5BwdgEM4MgElIcuz0vzp2e7v1fMcQOqZ+c23vTur0mkawOs3V597r4H9bm+uT73X0GUBAn4ZegR+sV8o4pftUnEf+ktEzJwj4z7kBwuZJY4I+1XrHyhmljqilWZ3iJDZo9W0bjKhxcxerRradVcImSPsmdabJ7SYOcqetjYFLWaOtrWx1UGLmUvZ0tqqoMXMpa1tbnHQYqaXNe0tClrM9La0wWeDFjOjWNJi80ff0NOTQZvOjOa5Js8GLWZG9VSbthxEmQ3adGZ05xr9KmgxU8Vcq7YcRPkiaNOZah43a0ITRdBEuQ/adoOqHrZrQhPlm94LWOPXb//pvYQX6/2n73ovYZHTNI2/3RDyOEYO+/bm+jT0hBbyeO6uyahhD7uHFvPYRr0+wwYNW5xG3D+PevfztdG2HiY0UYYL2nSuZbTrNVzQsIegiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKMP91ffVh4+9l8BK79++672EeyY0UQRNFEETRdBEETRRBE0UQRNF0EQRNFEETZThHn2v8dsff/ZeQqxffv6p9xI2KTuhxXysque3bNAwp2zQVV8Sq6h6fkvvoauedI5TdkLDHEETRdBEETRRBE0UQRNF0EQRNFFKP1ip+n2DCqo+tCo7ocV8rKrnt2zQMKds0FVfEquoen5L76GrnnSOU3ZCwxxBE0XQRBE0UQRNFEETRdBEETRRSj9Yqfp9g2nyUOgoZSd05Zinqf76R1U2aJhTNujqL9nV1z+q0ntoUfBY2QkNcwRNFEETRdBEETRRBE0UQRNF0EQRNFEETRRBE0XQRBE0UQRNFEETRdBEETRRBE0UQRNF0EQRNFEETRRBE0XQRBE0UQRNFEETRdBEETRRBE0UQRNF0EQRNFEETRRBE0XQRBE0UUr/F6wRXf/4Q+8l7HL14WPvJexiQjdUPeZpqn8Mgm6keggPVT4WQTdQOYBzqh6ToIkiaKIImiiCbqD6R11zqh6ToBupGsCcysci6IYqh3Cn+jF4UthY9SCqM6GJImiiCJoogiaKoIny6vbm+tR7EdDC7c31yYQmiqCJImiivJqm//YevRcCe9w1bEITZbigv3/7rvcSWGG063UftG0HVT1sd7gJPU3j3fXMG/E6DRk0bPVF0CNtO0a8+/nfKNfncbNDf8H/7qT9/dfvnVfCnVFCPmd2Ir9+c/X50gtZQtj9jBjy3I7i7BZj1Khhms5vj70pJMrZoEd6gwgPPdXmkxNa1IzmuSZtOYjybNCmNKNY0uKiCS1qelva4OIth6jpZU17q/bQoubS1ja3+k2hqLmULa1t+pRD1Bxta2ObP7YTNUfZ01aTKH3vgxZaDMkmD1ZMa/Zq1VDzEE1r1mg9DJs/+jatWeqIVg6Nz7RmzpFD72LTVNwv26VeubtsD8T9MvTYfg6x3xV4hhHeP/0LCMsQaLKNrVsAAAAASUVORK5CYII=">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAEaklEQVR4nO3dP3IcRRjG4VkXVRyCA5gcOyMiI5A5jU/BaUABGZEz5BwdgEM4MgElIcuz0vzp2e7v1fMcQOqZ+c23vTur0mkawOs3V597r4H9bm+uT73X0GUBAn4ZegR+sV8o4pftUnEf+ktEzJwj4z7kBwuZJY4I+1XrHyhmljqilWZ3iJDZo9W0bjKhxcxerRradVcImSPsmdabJ7SYOcqetjYFLWaOtrWx1UGLmUvZ0tqqoMXMpa1tbnHQYqaXNe0tClrM9La0wWeDFjOjWNJi80ff0NOTQZvOjOa5Js8GLWZG9VSbthxEmQ3adGZ05xr9KmgxU8Vcq7YcRPkiaNOZah43a0ITRdBEuQ/adoOqHrZrQhPlm94LWOPXb//pvYQX6/2n73ovYZHTNI2/3RDyOEYO+/bm+jT0hBbyeO6uyahhD7uHFvPYRr0+wwYNW5xG3D+PevfztdG2HiY0UYYL2nSuZbTrNVzQsIegiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKMP91ffVh4+9l8BK79++672EeyY0UQRNFEETRdBEETRRBE0UQRNF0EQRNFEETZThHn2v8dsff/ZeQqxffv6p9xI2KTuhxXysque3bNAwp2zQVV8Sq6h6fkvvoauedI5TdkLDHEETRdBEETRRBE0UQRNF0EQRNFFKP1ip+n2DCqo+tCo7ocV8rKrnt2zQMKds0FVfEquoen5L76GrnnSOU3ZCwxxBE0XQRBE0UQRNFEETRdBEETRRSj9Yqfp9g2nyUOgoZSd05Zinqf76R1U2aJhTNujqL9nV1z+q0ntoUfBY2QkNcwRNFEETRdBEETRRBE0UQRNF0EQRNFEETRRBE0XQRBE0UQRNFEETRdBEETRRBE0UQRNF0EQRNFEETRRBE0XQRBE0UQRNFEETRdBEETRRBE0UQRNF0EQRNFEETRRBE0XQRBE0UUr/F6wRXf/4Q+8l7HL14WPvJexiQjdUPeZpqn8Mgm6keggPVT4WQTdQOYBzqh6ToIkiaKIImiiCbqD6R11zqh6ToBupGsCcysci6IYqh3Cn+jF4UthY9SCqM6GJImiiCJoogiaKoIny6vbm+tR7EdDC7c31yYQmiqCJImiivJqm//YevRcCe9w1bEITZbigv3/7rvcSWGG063UftG0HVT1sd7gJPU3j3fXMG/E6DRk0bPVF0CNtO0a8+/nfKNfncbNDf8H/7qT9/dfvnVfCnVFCPmd2Ir9+c/X50gtZQtj9jBjy3I7i7BZj1Khhms5vj70pJMrZoEd6gwgPPdXmkxNa1IzmuSZtOYjybNCmNKNY0uKiCS1qelva4OIth6jpZU17q/bQoubS1ja3+k2hqLmULa1t+pRD1Bxta2ObP7YTNUfZ01aTKH3vgxZaDMkmD1ZMa/Zq1VDzEE1r1mg9DJs/+jatWeqIVg6Nz7RmzpFD72LTVNwv26VeubtsD8T9MvTYfg6x3xV4hhHeP/0LCMsQaLKNrVsAAAAASUVORK5CYII=">
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIui7iuaknOODu+aVtOWCmSDoq4vmsYLmm7jkvZzmiJAiLCAic2hvcnRfbmFtZSI6ICLoq4vmsYLmm7giLCAibGFuZyI6ICJqYSIsICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLCAib3JpZW50YXRpb24iOiAiYW55IiwgImJhY2tncm91bmRfY29sb3IiOiAiI2U5ZWJlZiIsICJ0aGVtZV9jb2xvciI6ICIjMjczNDRkIiwgImljb25zIjogW3sic3JjIjogImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBTFFBQUFDMENBWUFBQUE5elFZeUFBQUVha2xFUVZSNG5PM2RQM0ljUlJqRzRWa1hWUnlDQTVnY095TWlJNUE1alUvQmFVQUJHWkV6NUJ3ZGdFTTRNZ0VsSWN1ejB2enAyZTd2MWZNY1FPcVorYzIzdlR1cjBta2F3T3MzVjU5N3I0SDlibSt1VDczWDBHVUJBbjRaZWdSK3NWOG80cGZ0VW5FZitrdEV6SndqNHo3a0J3dVpKWTRJKzFYckh5aG1sanFpbFdaM2lKRFpvOVcwYmpLaHhjeGVyUnJhZFZjSW1TUHNtZGFiSjdTWU9jcWV0allGTFdhT3RyV3gxVUdMbVV2WjB0cXFvTVhNcGExdGJuSFFZcWFYTmUwdENsck05TGEwd1dlREZqT2pXTkppODBmZjBOT1RRWnZPak9hNUpzOEdMV1pHOVZTYnRoeEVtUTNhZEdaMDV4cjlLbWd4VThWY3E3WWNSUGtpYU5PWmFoNDNhMElUUmRCRXVRL2Fkb09xSHJaclFoUGxtOTRMV09QWGIvL3B2WVFYNi8ybjczb3ZZWkhUTkkyLzNSRHlPRVlPKy9ibStqVDBoQmJ5ZU82dXlhaGhEN3VIRnZQWVJyMCt3d1lOVzV4RzNEK1BldmZ6dGRHMkhpWTBVWVlMMm5TdVpiVHJOVnpRc0llZ2lTSm9vZ2lhS0lJbWlxQ0pJbWlpQ0pvb2dpYUtvSWtpYUtJSW1paUNKb3FnaVNKb29naWFLTVA5MWZmVmg0KzlsOEJLNzkrKzY3MkVleVkwVVFSTkZFRVRSZEJFRVRSUkJFMFVRUk5GMEVRUk5GRUVUWlRoSG4ydjhkc2ZmL1plUXF4ZmZ2NnA5eEkyS1R1aHhYeXNxdWUzYk5Bd3AyelFWVjhTcTZoNmZrdnZvYXVlZEk1VGRrTERIRUVUUmRCRUVUUlJCRTBVUVJORjBFUVJORkZLUDFpcCtuMkRDcW8rdENvN29jVjhyS3JudDJ6UU1LZHMwRlZmRXF1b2VuNUw3Nkdybm5TT1UzWkN3eHhCRTBYUVJCRTBVUVJORkVFVFJkQkVFVFJSU2o5WXFmcDlnMm55VU9nb1pTZDA1WmlucWY3NlIxVTJhSmhUTnVqcUw5blYxeitxMG50b1VmQlkyUWtOY3dSTkZFRVRSZEJFRVRSUkJFMFVRUk5GMEVRUk5GRUVUUlJCRTBYUVJCRTBVUVJORkVFVFJkQkVFVFJSQkUwVVFSTkYwRVFSTkZFRVRSUkJFMFhRUkJFMFVRUk5GRUVUUmRCRUVUUlJCRTBVUVJORjBFUVJORkVFVFJSQkUwWFFSQkUwVVVyL0Y2d1JYZi80USs4bDdITDE0V1B2SmV4aVFqZFVQZVpwcW44TWdtNmtlZ2dQVlQ0V1FUZFFPWUJ6cWg2VG9Ja2lhS0lJbWlpQ2JxRDZSMTF6cWg2VG9CdXBHc0NjeXNjaTZJWXFoM0NuK2pGNFV0aFk5U0NxTTZHSkltaWlDSm9vZ2lhS29Jbnk2dmJtK3RSN0VkREM3YzMxeVlRbWlxQ0pJbWlpdkpxbS8vWWV2UmNDZTl3MWJFSVRaYmlndjMvN3J2Y1NXR0cwNjNVZnRHMEhWVDFzZDdnSlBVM2ozZlhNRy9FNkRSazBiUFZGMENOdE8wYTgrL25mS05mbmNiTkRmOEgvN3FUOS9kZnZuVmZDblZGQ1BtZDJJcjkrYy9YNTBndFpRdGo5akJqeTNJN2k3QlpqMUtoaG1zNXZqNzBwSk1yWm9FZDZnd2dQUGRYbWt4TmExSXptdVNadE9ZanliTkNtTktOWTB1S2lDUzFxZWx2YTRPSXRoNmpwWlUxN3EvYlFvdWJTMWphMytrMmhxTG1VTGExdCtwUkQxQnh0YTJPYlA3WVROVWZaMDFhVEtIM3ZneFphRE1rbUQxWk1hL1pxMVZEekVFMXIxbWc5REpzLytqYXRXZXFJVmc2Tno3Um16cEZENzJMVFZOd3YyNlZldWJ0c0Q4VDlNdlRZZmc2eDN4VjRoaEhlUC8wTENNc1FhTEtOclZzQUFBQUFTVVZPUks1Q1lJST0iLCAic2l6ZXMiOiAiMTgweDE4MCIsICJ0eXBlIjogImltYWdlL3BuZyIsICJwdXJwb3NlIjogImFueSJ9LCB7InNyYyI6ICJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQWdBQUFBSUFDQVlBQUFEMGVOVDZBQUFPZVVsRVFWUjRuTzNkUFpiYnlCbUdVYlJPbitORnpBTEd1VFdaSTJVS05GcU5WdUhWeUFxVUtack1tdHhhZ0JjeGtSem9jQWJOQnRuOEFWQmYxWHR2cUFpc0p1cDdXR0MzSGlaSyt2bjF1Kyt0cndGZ0RkKytmbnBvZlEwODU0ZlNpQUVQOElOQWFNT2k3OEN3QjdpT0tOaWVCZDZBZ1Erd0xrR3dQZ3U2QWdNZllGK0M0SDRXOEVhR1BrQU5ZdUEyRnUwS2hqNUFiV0xnY2hicUJZWStRSi9Fd0hrVzV3U0RIMkFNUW1DWlJaa3g5QUhHSmdiK1lpRW1neDhnalJBSUR3Q0RIeUJiY2doRXZuQ0RINEM1eEJDSWVzRUdQd0RuSklWQXhBczErQUc0UmtJSXZHcDlBVnN6L0FHNFZzTHNHTFp3RW41NEFHeHYxTk9BNFY2VXdRL0FGa1lMZ2FFZUFSaitBR3hsdEJrelJNMk05a01Cb0xZUlRnTzZQd0V3L0FIWTJ3aXpwK3NBR09FSEFFQ2ZlcDlCWFI1aDlMN29BSXlseDBjQzNaMEFHUDRBVk5QamJPb3FBSHBjWUFBeTlEYWp1aml5NkcxUkFjald3eU9COGljQWhqOEF2ZWxoZHBVT2dCNFdFQUNXVko5aFpRT2crc0lCd0VzcXo3S1NBVkI1d1FEZ0dsVm5XcmtBcUxwUUFIQ3Jpck90VkFCVVhDQUFXRU8xR1ZjbUFLb3REQUNzcmRLc0t4RUFsUllFQUxaVVplWTFENEFxQ3dFQWU2a3crNW9HUUlVRkFJQVdXcy9BWmdIUStvVURRR3N0WjJHVEFERDhBZUNIVmpOeDl3QXcvQUhncVJhemNkY0FNUHdCWU5uZU0zSzNBREQ4QWVDOFBXZmxMZ0ZnK0FQQVpmYWFtYzMvRGdBQXNML05BOENuZndDNHpoNnpjOU1BTVB3QjREWmJ6OUROQXNEd0I0RDdiRGxMZlFjQUFBSnRFZ0ErL1FQQU9yYWFxYXNIZ09FUEFPdmFZcmF1R2dDR1B3QnNZKzBaNnpzQUFCQm90UUR3NlI4QXRyWG1yRjBsQUF4L0FOakhXalBYSXdBQUNIUjNBUGowRHdEN1dtUDJPZ0VBZ0VCM0JZQlAvd0RReHIweitPWUFNUHdCb0sxN1pyRkhBQUFRNktZQThPa2ZBR3E0ZFNZN0FRQ0FRRmNIZ0UvL0FGRExMYlBaQ1FBQUJMb3FBSHo2QjRDYXJwM1JUZ0FBSU5ERkFlRFRQd0RVZHMyc2RnSUFBSUV1Q2dDZi9nR2dENWZPYkNjQUFCQklBQUJBb0JjRHdQRS9BUFRsa3RudEJBQUFBcDBOQUovK0FhQlBMODF3SndBQUVFZ0FBRUNna3dIZytCOEErblp1bGpzQkFJQkFBZ0FBQWkwR2dPTi9BQmpEcVpudUJBQUFBZ2tBQUFqMGNQd1Bqdi9IOWErLy9hLzFKUUFkK1BESFQ2MHZnUTE4Ky9ycHljeC9iSFVoYk0vQUIyNXh2SGNJZ2pFSmdBRVovTUNhRG51S0VCaUxBQmlJd1E5c1NRaU01Y256QU0vLysyVHdBeTBJZ2Y3TXZ3Zmd0d0E2Wi9nRHJkaC8raVlBT3VibUExcXpEL1ZMQUhUS1RRZFVZVC9xMDU4QjRQbC9QOXhzUURYMnBUN01aNzBUZ002NHlZQ3E3RTk5RVFBZGNYTUIxZG1uK2lFQU91R21BbnBoditxREFBQ0FRSytteVJjQXExUFRRRy9zVzNVZFpyNFRBQUFJSkFDS1U5RkFyK3hmdFFrQUFBZ2tBQXBUejBEdjdHTjFDUUFBQ0NRQUFDQ1FBQUNBUUEvK0JrQk5ucHNCSS9ud3gwK3RMNEVqVGdBQUlKQUFBSUJBQWdBQUFna0FBQWdrQUFBZ2tBQUFnRUFDQUFBQ0NRQUFDQ1FBQUNDUUFBQ0FRQUlBQUFJSkFBQUlKQUFBSUpBQUFJQkFBZ0FBQWdrQUFBZ2tBQUFna0FBQWdFQUNBQUFDQ1FBQUNDUUFBQ0NRQUFDQVFBSUFBQUlKQUFBSUpBQUFJSkFBQUlCQUFnQUFBZ2tBQUFna0FBQWdrQUFBZ0VBQ0FBQUNDUUFBQ0NRQUFDQ1FBQUNBUUFJQUFBSUpBQUFJSkFBQUlKQUFBSUJBQWdBQUFna0FBQWdrQUFBZ2tBQUFnRUFDQUFBQ0NRQUFDQ1FBQUNEUVkrc0xZTm03MzM1dmZRa0FxL253eTYrdEw0RWpUZ0FBSUpBQUFJQkFBZ0FBQWdrQUFBZ2tBQUFna0FBQWdFQUNBQUFDQ1FBQUNDUUFBQ0NRQUFDQVFBSUFBQUlKQUFBSUpBQUFJSkFBQUlCQUFnQUFBZ2tBQUFna0FBQWdrQUFBZ0VBQ0FBQUNDUUFBQ0NRQUFDQ1FBQUNBUUFJQUFBSUpBQUFJSkFBQUlKQUFBSUJBQWdBQUFna0FBQWdrQUFBZ2tBQUFnRUFDQUFBQ0NRQUFDQ1FBQUNEUVkrc0xvSzZQbjcrMHZnUmdCZS9mdm1sOUNSVGtCSUJGaGorTXcvM01FZ0hBTXpZTEdJLzdtbU1DZ0Nkc0VqQXU5emR6QWdBQUFna0FBQWdrQUFBZ2tBRGdDYjh1Qk9OeWZ6TW5BSGpHSmdIamNWOXpUQUN3eUdZQjQzQS9zOFJmQXVRa213YkF1SndBQUVBZ0FRQUFnUVFBQUFRU0FBQVFTQUFBUUNBQkFBQ0JCQUFBQkJJQUFCQklBQUJBSUFFQUFJRUVBQUFFRWdBQUVFZ0FBRUFnQVFBQWdRUUFBQVFTQUFBUVNBQUFRQ0FCQUFDQkJBQUFCQklBQUJCSUFBQkFJQUVBQUlFRUFBQUVFZ0FBRUVnQUFFQWdBUUFBZ1FRQUFBUjZiSDBCMVBYeDg1Zldsd0NzNFAzYk42MHZnWUtjQUxESThJZHh1SjlaSWdCNHhtWUI0M0ZmYzB3QThJUk5Bc2JsL21aT0FBQkFJQUVBQUlFRUFBQUVFZ0E4NGRlRllGenViK1lFQU0vWUpHQTg3bXVPQ1FBVzJTeGdITzVubHZoTGdKeGswd0FZbHhNQUFBZ2tBQUFna0FBQWdFQUNBQUFDQ1FBQUNDUUFBQ0NRQUFDQVFBSUFBQUlKQUFBSUpBQUFJSkFBQUlCQUFnQUFBZ2tBQUFna0FBQWdrQUFBZ0VBQ0FBQUNDUUFBQ0NRQUFDQ1FBQUNBUUFJQUFBSUpBQUFJSkFBQUlKQUFBSUJBQWdBQUFna0FBQWdrQUFBZ2tBQUFnRUNQclMrQXVqNSsvdEw2RWlqaS9kczNyUzhCV0prVEFCWVovc3g1UDhCNEJBRFAyT3haNG4wQll4RUFQR0dUNXh6dkR4aUhBQUNBUUFJQUFBSUpBQUFJSkFCNHdxOTdjWTczQjR4REFQQ01UWjRsM2hjd0ZnSEFJcHM5Yzk0UE1CNS9DWkNUYlBvQTQzSUNBQUNCQkFBQUJCSUFBQkJJQUFCQUlBRUFBSUVFQUFBRUVnQUFFRWdBQUVBZ0FRQUFnUVFBQUFRU0FBQVFTQUFBUUNBQkFBQ0JCQUFBQkJJQUFCQklBQUJBSUFFQUFJRUVBQUFFRWdBQUVFZ0FBRUFnQVFBQWdRUUFBQVFTQUFBUVNBQUFRQ0FCQUFDQkJBQUFCQklBQUJCSUFBQkFJQUVBQUlFRUFBQUVFZ0FBRUVnQUFFQWdBUUFBZ1FRQUFBUVNBQUFRU0FBQVFDQUJBQUNCQkFBQUJCSUFBQkJJQUFCQUlBRUFBSUVFQUFBRUVnQUFFRWdBQUVBZ0FRQUFnUVFBQUFRU0FBQVFTQUFBUUNBQkFBQ0JCQUFBQkJJQUFCQklBQUJBSUFFQUFJRUVBQUFFRWdBQUVFZ0FBRUFnQVFBQWdRUUFBQVFTQUFBUVNBQUFRQ0FCQUFDQkJBQUFCQklBQUJCSUFBQkFJQUVBQUlFRUFBQUVFZ0FBRUVnQUFFQWdBUUFBZ1FRQUFBUVNBQUFRU0FBQVFDQUJBQUNCQkFBQUJCSUFBQkJJQUFCQUlBRUFBSUVFQUFBRUVnQUFFRWdBQUVBZ0FRQUFnUVFBQUFRU0FBQVFTQUFBUUNBQkFBQ0JCQUFBQkJJQUFCQklBQUJBSUFFQUFJRUVBQUFFRWdBQUVFZ0FBRUFnQVFBQWdRUUFBQVFTQUFBUVNBQUFRQ0FCQUFDQkJBQUFCQklBQUJCSUFBQkFJQUVBQUlFZVcxOEFjSjlQLy94SDYwdWdnSGUvL2Q3NkV1aU1BSUFPR2ZvY203OG54QUNYOEFnQU9tUDQ4eEx2RVM3aEJBQTZZVlBuR29mM2k5TUFUbkVDQUIwdy9MbVY5dzZuQ0FBQUNDUUFvRGlmNExpWDl4QkxCQUFVWnVObUxkNUxIQk1BQUJCSUFBQkFJQUVBUlRteVpXM2VVOHdKQUFBSUpBQUFJSkFBQUlCQUFnQUFBZ2tBQUFna0FLQW8vNGtMYS9PZVlrNEFBRUFnQVFBQWdRUUFGT2JJbHJWNEwzRk1BRUJ4Tm03dTVUM0VFZ0VBQUlFRUFIVEFKemh1NWIzREtZK3RMd0M0ekdFajl4KzZjQW1EbjVjNEFZRE8yTmg1aWZjSWwzQUNBQjJhYi9CT0JKZ21RNS9yQ1FEb25JMGZ1SVZIQUFBUVNBQUFRQ0FCQUFDQkJBQUFCQklBQUJCSUFBQkFJQUVBQUlFRUFBQUVFZ0FBRUVnQUFFQWdBUUFBZ1FRQUFBUVNBQUFRNk5XM3I1OGVXbDhFQUxDZmIxOC9QVGdCQUlCQUFnQUFBZ2tBQUFna0FBQWdrQUFBZ0VBQ0FBQUNDUUFBQ1BScW1uNzhQbURyQ3dFQXRuZVkrVTRBQUNDUUFBQ0FRQUlBQUFJSkFBQUk5R2NBK0NJZ0FJeHRQdXVkQUFCQUlBRUFBSUVFQUFBRWVoSUF2Z2NBQUdNNm52Rk9BQUFna0FBQWdFQUNBQUFDUFFzQTN3T280ZSsvL05yNkVnQldZVDlyYjJtMk93RUFnRUFDQUFBQ0xRYUF4d0FBTUlaVE05MEpRR0dlbXdHOXM0L1ZKUUFBSU5ESkFQQVlvQWIxRFBUSy90WGV1Vm51QkFBQUFnbUFEcWhvb0RmMnJmck9Cb0RIQUFEUXA1ZG11Qk9BVHFocG9CZjJxejY4R0FCT0FlcHdVd0hWMmFkcXVHUjJPd0hvakpzTHFNcisxQmNCMENFM0dWQ05mYWsvRndXQXh3RDF1Tm1BS3V4SHRWdzZzNTBBZE14TkI3Um1IK3JYeFFIZ0ZLQW1OeC9RaXYybm5tdG05ZU9XRjhJK0RqZmhmLy96NzhaWEFpUXcrTWR3OWFmNm4xKy8rNzdGaGJBZUlRQnN3ZUN2N2RxVGVpY0FBM0lpQUt6SjRCL1RUYy8xblFMMFNSQUFsekR3KzNQTDkvU2NBQVJ4VXdOd2NOT3ZBZnFOQUFDbzRkYVo3TzhBQUVDZ213UEFLUUFBdEhYUExMN3JCRUFFQUVBYjk4NWdqd0FBSU5EZEFlQVVBQUQydGNic2RRSUFBSUZXQ1FDbkFBQ3dqN1ZtN21vbkFDSUFBTGExNXF6MUNBQUFBcTBhQUU0QkFHQWJhOC9ZMVU4QVJBQUFyR3VMMmJySkl3QVJBQURyMkdxbStnNEFBQVRhTEFDY0FnREFmYmFjcFp1ZUFJZ0FBTGpOMWpOMDgwY0FJZ0FBcnJQSDdQUWRBQUFJdEVzQU9BVUFnTXZzTlROM093RVFBUUJ3M3A2emN0ZEhBQ0lBQUpidFBTTjMvdzZBQ0FDQXAxck14aVpmQWhRQkFQQkRxNW5ZN0xjQVJBQUE2VnJPd3FhL0JpZ0NBRWpWZWdZMi96c0FyUmNBQVBaV1lmWTFENEJwcXJFUUFMQ0hLak92UkFCTVU1MEZBWUN0VkpwMVpRSmdtbW90REFDc3FkcU1LeFVBMDFSdmdRRGdYaFZuVzdrQW1LYWFDd1VBdDZnNjAwb0d3RFRWWFRBQXVGVGxXVlkyQUthcDlzSUJ3RG5WWjFqcEFKaW0rZ3NJQU1kNm1GM2xMM0R1NTlmdnZyZStCZ0E0cFlmQmYxRCtCR0N1cDRVRklFdHZNNnFyQUppbS9oWVlnUEgxT0p1NnUrQTVqd1FBYUtuSHdYL1EzUW5BWE04TEQwRGZlcDlCWFFmQU5QWC9Bd0NnUHlQTW51NWZ3SnhIQWdCc2FZVEJmOUQ5Q2NEY1NEOFlBR29aYmNZTTlXTG1uQVlBc0liUkJ2L0JrQzlxVGdnQWNJdFJCLy9CVUk4QWxveitBd1JnZlFtelkvZ1hPT2MwQUlCekVnYi9RY3dMblJNQ0FNd2xEZjZEdUJjOEp3UUFzaVVPL29QWUZ6NG5CQUN5SkEvK2cvZ0ZtQk1DQUdNeitQOWlJVTRRQXdCak1QU1hXWlFYQ0FHQVBobjg1MW1jSzRnQmdOb00vY3RacUJ1SkFZQWFEUDNiV0xRVmlBR0FmUm42OTdPQUd4QUVBT3N5OE5kblFYY2dDQUN1WStCdnp3STNJZ29BZmpEczI3RG9SUWtFWUJRR2ZFMy9CeGJ4NEJqa2xYMkRBQUFBQUVsRlRrU3VRbUNDIiwgInNpemVzIjogIjUxMng1MTIiLCAidHlwZSI6ICJpbWFnZS9wbmciLCAicHVycG9zZSI6ICJhbnkgbWFza2FibGUifV19">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#e9ebef; --panel:#fff; --ink:#1d2430; --sub:#677182; --line:#d4d9e1;
+  --navy:#27344d; --navyD:#1a2436; --red:#b23b32; --redD:#8d2c24; --field:#f6f7f9; --focus:#3a4d72;
+  --sans:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif;
+  --mincho:'Noto Serif JP','Hiragino Mincho ProN','Yu Mincho','YuMincho','MS PMincho',serif;
+}
+*{box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);}
+input,select,textarea{font-size:16px;font-family:inherit;}
+input::placeholder,textarea::placeholder{color:#aab1bd;}
+button{font-family:inherit;touch-action:manipulation;-webkit-tap-highlight-color:transparent;cursor:pointer;}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:#c5cad3;border-radius:8px;border:2px solid var(--bg)}
+input[type=checkbox]{accent-color:var(--navy);width:20px;height:20px}
+
+.btn{padding:10px 16px;min-height:42px;font-size:14px;font-weight:600;border:none;border-radius:10px;color:#fff;white-space:nowrap;transition:filter .15s,transform .05s;}
+.btn:active{transform:translateY(1px)}
+.btn:hover{filter:brightness(.93)}
+.btn-ghost{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn-navy{background:var(--navyD)} .btn-red{background:var(--red)} .btn-primary{background:var(--navy)}
+
+/* header */
+.header{position:sticky;top:0;z-index:30;background:var(--navy);color:#fff;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;box-shadow:0 2px 10px rgba(0,0,0,.12)}
+.h-brand{display:flex;align-items:center;gap:11px}
+.h-logo{width:30px;height:30px;border-radius:7px;background:var(--red);display:grid;place-items:center;font-size:15px;font-weight:700}
+.h-title{font-size:15px;font-weight:700;letter-spacing:.5px}
+.h-sub{font-size:10.5px;opacity:.65}
+.hbtns{display:flex;gap:8px;flex-wrap:wrap}
+
+/* tabbar (narrow only) */
+.tabbar{display:none}
+
+/* layout */
+.main{display:flex;flex-direction:row;gap:18px;padding:16px;align-items:flex-start;max-width:1500px;margin:0 auto}
+.panel-form{flex:0 0 480px;max-width:480px;min-width:0}
+.panel-preview{flex:1;min-width:0;position:sticky;top:76px}
+
+/* sections */
+.sec{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 16px 18px;margin-bottom:14px}
+.sec-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
+.sec-tt{display:flex;align-items:center;gap:8px}
+.sec-tt .bar{width:3px;height:15px;background:var(--red);border-radius:2px}
+.sec-tt h3{margin:0;font-size:14px;font-weight:700}
+.lbl{font-size:12px;font-weight:600;color:var(--sub);margin-bottom:5px;display:block;letter-spacing:.2px}
+.inp{width:100%;padding:11px 12px;font-size:16px;border:1px solid var(--line);border-radius:9px;background:var(--field);color:var(--ink);outline:none;-webkit-appearance:none;transition:border-color .15s,background .15s}
+.inp:focus{border-color:var(--focus);background:#fff}
+.row{display:flex;gap:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+/* presets */
+.presets{display:flex;flex-wrap:wrap;gap:8px}
+.preset{padding:8px 13px;font-size:13px;font-weight:600;border-radius:20px;border:1px solid var(--line);background:#f3f5f8;color:var(--navy)}
+.preset.nontax{border-color:#e3c9c6;background:#fbeeec;color:var(--redD)}
+
+/* items */
+.itemsList{display:flex;flex-direction:column;gap:10px}
+.empty{text-align:center;color:var(--sub);font-size:12.5px;padding:18px 0;border:1px dashed var(--line);border-radius:10px}
+.item{border:1px solid var(--line);border-radius:10px;padding:11px;background:#fff}
+.item.nontax{background:#fdf4f3}
+.item .r1{display:flex;gap:8px;margin-bottom:8px}
+.item .r1 .n{flex:2}.item .r1 .nt{flex:1}
+.item .r1 .inp{font-weight:600}
+.fields{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end}
+.fld{display:flex;flex-direction:column}
+.fld .l{font-size:12px;font-weight:600;color:var(--sub);margin-bottom:3px}
+.fld .inp{text-align:right}
+.fld.qty{flex:0 0 70px}.fld.unit{flex:0 0 64px}.fld.unit .inp{text-align:center}
+.fld.money{flex:1 1 90px;min-width:84px}
+.ctrl{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+.chk{display:flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--navy);padding:6px 4px;cursor:pointer}
+.chk.nontax{color:var(--redD)}
+.ctrl .ops{display:flex;gap:6px}
+.opbtn{padding:8px 13px;min-width:44px;min-height:42px;font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--navy)}
+.opbtn:disabled{opacity:.4}
+.delbtn{padding:8px 14px;color:var(--red);border-color:#e8cbc8}
+.delbtn:hover{background:#fbeae8;color:var(--redD)}
+.addbtn{width:100%;margin-top:12px;padding:11px;border:1px dashed var(--line);border-radius:10px;background:#fff;color:var(--navy);font-size:14px;font-weight:600}
+
+/* totals box */
+.totbox{margin-top:14px;background:#f2f4f7;border-radius:10px;padding:12px 14px;font-size:13px}
+.totrow{display:flex;justify-content:space-between;padding:2px 0;color:#3a4150}
+.totrow b{font-weight:600;font-variant-numeric:tabular-nums}
+.tothr{height:1px;background:var(--line);margin:8px 0}
+.totgrand{display:flex;justify-content:space-between;align-items:baseline}
+.totgrand .lab{font-weight:700}
+.totgrand .val{font-weight:800;font-size:19px;color:var(--red)}
+
+/* preview */
+.pv-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:8px;flex-wrap:wrap}
+.pv-bar .lbl-min{font-size:12px;color:var(--sub)}
+.pv-tools{display:flex;align-items:center;gap:6px}
+.zbtn{padding:6px 12px;min-height:36px;font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--navy)}
+.zpct{font-size:12.5px;font-weight:600;min-width:62px;text-align:center}
+.preview-clip{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;background:#cfd4dd;border-radius:8px;padding:12px;max-height:calc(100vh - 130px)}
+.preview-sizer{position:relative;margin:0 auto}
+.preview-inner{position:absolute;top:0;left:0;transform-origin:top left;width:210mm;box-shadow:0 6px 28px rgba(20,30,50,.25)}
+
+/* modal + toast */
+.overlay{position:fixed;inset:0;background:rgba(20,28,45,.45);z-index:50;display:grid;place-items:center;padding:20px}
+.modal{background:#fff;border-radius:14px;width:min(560px,100%);max-height:80vh;overflow:auto;padding:20px}
+.modal-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.modal-h h3{margin:0;font-size:16px;font-weight:700}
+.inv-list{display:flex;flex-direction:column;gap:8px}
+.inv-item{border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.inv-item .nm{font-weight:700;font-size:14px}
+.inv-item .mt{font-size:12px;color:var(--sub)}
+.inv-item .acts{display:flex;gap:6px;flex-shrink:0}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:60;background:var(--navyD);color:#fff;padding:11px 20px;border-radius:10px;font-size:13px;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.show{opacity:1}
+.toast.err{background:var(--redD)}
+
+/* ===== invoice document ===== */
+.iv{width:210mm;min-height:297mm;background:#fff;color:#15191f;font-family:var(--mincho);font-size:9.5pt;line-height:1.3;padding:10mm 9mm 8mm}
+.iv .cell{border-right:1px solid #2a2f37;padding:0 2mm;display:flex;align-items:center;font-size:9.2pt;min-width:0;overflow:hidden;white-space:nowrap}
+.iv .cell.r{justify-content:flex-end;font-variant-numeric:tabular-nums}
+.iv .cell.c{justify-content:center}
+.iv .cell.last{border-right:none}
+.iv .g7{display:grid;grid-template-columns:44mm 22mm 12mm 12mm 22mm 24mm 22mm}
+.iv .gv{display:grid;grid-template-columns:24mm 28mm 24mm 28mm 30mm 24mm 1fr}
+.iv .rh{height:6.6mm;border-bottom:1px dashed #aeb4bd}
+
+/* responsive: tablet / phone */
+@media (max-width:1079px){
+  .main{flex-direction:column}
+  .panel-form{flex:1 1 auto;width:100%;max-width:100%}
+  .panel-preview{flex:1 1 auto;width:100%;max-width:100%;position:static}
+  .tabbar{display:block;position:sticky;top:58px;z-index:25;background:var(--bg);padding:10px 14px 0}
+  .tabbar .seg{display:flex;gap:6px;background:#dfe3ea;padding:5px;border-radius:12px}
+  .tabbar .tab{flex:1;min-height:42px;border:none;border-radius:9px;font-size:14px;font-weight:700;background:transparent;color:#6b7585}
+  .tabbar .tab.active{background:#fff;color:var(--navy);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+  .main[data-tab="form"] .panel-preview{display:none}
+  .main[data-tab="preview"] .panel-form{display:none}
+  .preview-clip{max-height:calc(100vh - 215px)}
+}
+
+/* print */
+.print-only{display:none}
+@page{size:A4;margin:0}
+@media print{
+  .screen{display:none!important}
+  .print-only{display:block!important}
+  html,body{background:#fff!important;margin:0!important}
+}
+</style>
+</head>
+<body>
+<div class="screen">
+  <div class="header">
+    <div class="h-brand">
+      <div class="h-logo">請</div>
+      <div>
+        <div class="h-title">車検・整備　請求書作成</div>
+        <div class="h-sub" id="hSub">アップムーンオート</div>
+      </div>
+    </div>
+    <div class="hbtns">
+      <button class="btn btn-ghost" id="btnNew">＋ 新規作成</button>
+      <button class="btn btn-ghost" id="btnList">📂 一覧 / 読込</button>
+      <button class="btn btn-navy" id="btnSave">💾 保存</button>
+      <button class="btn btn-red" id="btnPrint">🖨 印刷 / PDF</button>
+    </div>
+  </div>
+
+  <div class="tabbar">
+    <div class="seg">
+      <button class="tab active" data-tab="form">✏️ 入力</button>
+      <button class="tab" data-tab="preview">📄 プレビュー</button>
+    </div>
+  </div>
+
+  <div class="main" data-tab="form" id="main">
+    <!-- ===== 入力 ===== -->
+    <div class="panel-form">
+      <div class="sec">
+        <div class="sec-h"><div class="sec-tt"><span class="bar"></span><h3>伝票情報</h3></div></div>
+        <div class="row" style="margin-bottom:12px">
+          <div style="flex:1"><label class="lbl">伝票No.</label><input class="inp" id="slipNo"></div>
+          <div style="flex:1"><label class="lbl">Page</label><input class="inp" id="page"></div>
+        </div>
+        <div class="row" style="align-items:flex-end">
+          <div style="flex:0 0 78px"><label class="lbl">元号</label>
+            <select class="inp" id="era" style="padding:11px 6px"><option>令和</option><option>平成</option></select>
+          </div>
+          <div style="flex:1"><label class="lbl">年</label><input class="inp" id="yy" inputmode="numeric" style="text-align:right"></div>
+          <div style="flex:1"><label class="lbl">月</label><input class="inp" id="mm" inputmode="numeric" style="text-align:right"></div>
+          <div style="flex:1"><label class="lbl">日</label><input class="inp" id="dd" inputmode="numeric" style="text-align:right"></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-h"><div class="sec-tt"><span class="bar"></span><h3>お客様</h3></div></div>
+        <label class="lbl">お客様名（様 は自動付与）</label>
+        <input class="inp" id="customer" placeholder="例）ワキサカ">
+      </div>
+
+      <div class="sec">
+        <div class="sec-h"><div class="sec-tt"><span class="bar"></span><h3>車両情報</h3></div></div>
+        <div class="grid2">
+          <div><label class="lbl">登録番号</label><input class="inp" id="v_reg" placeholder="奈良 300 あ ・・・"></div>
+          <div><label class="lbl">車名</label><input class="inp" id="v_name" placeholder="シエンタ"></div>
+          <div><label class="lbl">型式</label><input class="inp" id="v_model"></div>
+          <div><label class="lbl">原動機型式</label><input class="inp" id="v_engine"></div>
+          <div><label class="lbl">車台番号</label><input class="inp" id="v_chassis"></div>
+          <div><label class="lbl">初年度登録</label><input class="inp" id="v_firstReg" placeholder="R3.4"></div>
+          <div><label class="lbl">走行距離</label><input class="inp" id="v_mileage" placeholder="42,000km"></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-h"><div class="sec-tt"><span class="bar"></span><h3>明細</h3></div>
+          <span style="font-size:11px;color:var(--sub)">非課税＝重量税/手数料/自賠責</span></div>
+        <div style="margin-bottom:12px">
+          <label class="lbl">クイック追加（タップで行追加）</label>
+          <div class="presets" id="presets"></div>
+        </div>
+        <div class="itemsList" id="itemsList"></div>
+        <button class="addbtn" id="btnAdd">＋ 行を追加</button>
+        <div class="totbox">
+          <div class="totrow"><span>部品等計</span><b id="t_parts">¥0</b></div>
+          <div class="totrow"><span>技術料</span><b id="t_labor">¥0</b></div>
+          <div class="totrow"><span>税抜計</span><b id="t_beforeTax">¥0</b></div>
+          <div class="totrow"><span id="t_taxlabel">消費税</span><b id="t_tax">¥0</b></div>
+          <div class="tothr"></div>
+          <div class="totgrand"><span class="lab">総合計</span><span class="val" id="t_total">¥0-</span></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-h"><div class="sec-tt"><span class="bar"></span><h3>特記事項</h3></div></div>
+        <textarea class="inp" id="notes" rows="3" style="resize:vertical;line-height:1.5" placeholder="次回車検 R10年6月 など"></textarea>
+      </div>
+
+      <div class="sec">
+        <div class="sec-h"><div class="sec-tt"><span class="bar"></span><h3>事業者情報（自社）</h3></div>
+          <button class="btn btn-ghost" id="btnCompanyToggle" style="padding:6px 12px;min-height:auto">編集</button></div>
+        <div id="companyView" style="font-size:12.5px;color:var(--sub);line-height:1.7"></div>
+        <div id="companyEdit" style="display:none;flex-direction:column;gap:10px">
+          <div><label class="lbl">営業案内</label><input class="inp" id="c_service"></div>
+          <div><label class="lbl">代理店表記</label><input class="inp" id="c_agency"></div>
+          <div class="row">
+            <div style="flex:1"><label class="lbl">社名(英)</label><input class="inp" id="c_nameEn"></div>
+            <div style="flex:1"><label class="lbl">社名(和)</label><input class="inp" id="c_nameJa"></div>
+          </div>
+          <div><label class="lbl">代表者</label><input class="inp" id="c_rep"></div>
+          <div class="row">
+            <div style="flex:1"><label class="lbl">郵便番号</label><input class="inp" id="c_zip"></div>
+            <div style="flex:1"><label class="lbl">TEL/FAX</label><input class="inp" id="c_tel"></div>
+          </div>
+          <div><label class="lbl">住所</label><input class="inp" id="c_address"></div>
+          <div><label class="lbl">登録番号(インボイス)</label><input class="inp" id="c_regNo"></div>
+          <div><label class="lbl">振込先</label><input class="inp" id="c_bank"></div>
+          <div class="row" style="align-items:flex-end">
+            <div style="flex:0 0 120px"><label class="lbl">消費税率(%)</label><input class="inp" id="c_taxRate" inputmode="numeric" style="text-align:right"></div>
+            <button class="btn btn-primary" id="btnSaveCompany" style="flex:1">この内容を既定として保存</button>
+          </div>
+        </div>
+      </div>
+      <div style="height:20px"></div>
+    </div>
+
+    <!-- ===== プレビュー ===== -->
+    <div class="panel-preview" id="panelPreview">
+      <div class="pv-bar">
+        <span class="lbl-min">プレビュー（印刷・PDFはこのまま出力）</span>
+        <div class="pv-tools">
+          <button class="zbtn" id="zOut">－</button>
+          <span class="zpct" id="zPct">100%</span>
+          <button class="zbtn" id="zIn">＋</button>
+          <button class="zbtn" id="zFit">フィット</button>
+          <button class="btn btn-red" id="btnPrint2" style="padding:8px 14px;min-height:36px">🖨 出力</button>
+        </div>
+      </div>
+      <div class="preview-clip" id="previewClip">
+        <div class="preview-sizer" id="previewSizer">
+          <div class="preview-inner" id="previewInner"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- print target (unscaled, real A4) -->
+<div class="print-only" id="printArea"></div>
+
+<!-- modal -->
+<div class="overlay" id="overlay" style="display:none">
+  <div class="modal">
+    <div class="modal-h"><h3>保存済み請求書</h3><button class="btn btn-ghost" id="btnCloseModal" style="padding:6px 12px;min-height:auto">閉じる</button></div>
+    <div id="invList"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============== ユーティリティ ============== */
+function num(v){ if(typeof v==='number') return isNaN(v)?0:v; var n=parseFloat(String(v==null?'':v).replace(/[^0-9.\-]/g,'')); return isNaN(n)?0:n; }
+function fmt(n){ return Math.round(num(n)).toLocaleString('ja-JP'); }
+function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+function uid(){ return Math.random().toString(36).slice(2); }
+function todayReiwa(){ var d=new Date(); return {era:'令和', year:d.getFullYear()-2018, month:d.getMonth()+1, day:d.getDate()}; }
+var LS_INV='upmoon_inv:', LS_CO='upmoon_company_default';
+
+/* ============== 既定データ ============== */
+var DEFAULT_COMPANY={
+  service:'新車・中古車販売・車検・修理・鈑金塗装・買取',
+  agency:'三井住友海上火災保険代理店',
+  nameEn:'UP MOON AUTO', nameJa:'アップムーンオート', rep:'代表　上月敏昭',
+  zip:'630-8106', address:'奈良県奈良市佐保台西町204', tel:'tel/fax 0742-71-6192',
+  regNo:'T7810019890837',
+  bank:'（振込先）南都銀行/手貝（テガイ）支店　普通　281854　アップムーンオート　ウエヅキトシアキ',
+  taxRate:10
+};
+var PRESETS=[
+  ['自動車重量税','自動車重量税','',false],['検査手数料','検査手数料','',false],
+  ['自賠責保険','自賠責保険','24カ月',false],['印紙代','印紙代','',false],
+  ['検査代行費','検査代行費','',true],['完成検査料','完成検査料','',true],
+  ['24ヶ月点検','24ヶ月点検','',true],
+  ['ヘッドライト・サイドスリップ','ヘッドライト・サイドスリップ','点検・調整',true],
+  ['エンジンオイル','エンジンオイル','交換',true],['オイルエレメント','オイルエレメント','交換',true],
+  ['ブレーキフルード','ブレーキフルード','交換',true],['ワイパーゴム','ワイパーゴム','交換',true],
+  ['バッテリー','バッテリー','交換',true],['LLC','LLC（クーラント）','交換',true],
+  ['発炎筒','発炎筒','',true],['下廻り塗装','下廻り塗装','',true],
+  ['ブレーキ整備','ブレーキ整備','清掃・調整',true],['洗車','洗車','',true]
+];
+function blankItem(o){ return Object.assign({id:uid(),name:'',note:'',qty:1,unit:'',unitPrice:0,partsPrice:0,labor:0,taxable:true}, o||{}); }
+function sampleInvoice(){
+  return {
+    slipNo:'1816', page:'1/1', era:'令和', year:8, month:6, day:2,
+    customer:'ワキサカ',
+    vehicle:{reg:'',name:'シエンタ',model:'',engine:'',chassis:'',firstReg:'',mileage:''},
+    taxRate:10, notes:'',
+    items:[
+      blankItem({name:'自動車重量税',qty:1,unitPrice:37800,partsPrice:37800,taxable:false}),
+      blankItem({name:'検査手数料',qty:1,unitPrice:2500,partsPrice:2500,taxable:false}),
+      blankItem({name:'自賠責保険',note:'24カ月',qty:1,unitPrice:17650,partsPrice:17650,taxable:false}),
+      blankItem({name:'検査代行費',qty:1,unitPrice:0,partsPrice:0,labor:15000,taxable:true}),
+      blankItem({name:'ヘッドライト・サイドスリップ',note:'点検・調整',qty:1,unitPrice:3000,partsPrice:3000,taxable:true}),
+      blankItem({name:'エンジンオイル',note:'交換',qty:3.5,unitPrice:1650,partsPrice:5775,taxable:true})
+    ]
+  };
+}
+
+/* ============== 計算 ============== */
+function calcTotals(items, taxRate){
+  var parts=0,labor=0,tb=0;
+  for(var i=0;i<items.length;i++){ var p=num(items[i].partsPrice),l=num(items[i].labor); parts+=p; labor+=l; if(items[i].taxable) tb+=p+l; }
+  var beforeTax=parts+labor, tax=Math.floor(tb*num(taxRate)/100);
+  return {parts:parts,labor:labor,beforeTax:beforeTax,tax:tax,total:beforeTax+tax,taxableBase:tb};
+}
+
+/* ============== 状態 ============== */
+function blankInvoice(){
+  var tr=todayReiwa();
+  return { slipNo:'', page:'1/1', era:tr.era, year:tr.year, month:tr.month, day:tr.day,
+    customer:'', vehicle:{reg:'',name:'',model:'',engine:'',chassis:'',firstReg:'',mileage:''},
+    taxRate:10, notes:'', items:[] };
+}
+var state={ inv:blankInvoice(), company:Object.assign({},DEFAULT_COMPANY), zoom:1, autoScale:0.6 };
+var PAGE_W=210*96/25.4, PAGE_H=297*96/25.4;
+function $(id){ return document.getElementById(id); }
+
+/* ============== 請求書HTML生成 ============== */
+function invoiceHTML(d, c, t){
+  var stamps=''; for(var i=0;i<3;i++) stamps+='<div style="width:13mm;height:13mm;border:1.2px solid #2a2f37;border-radius:1.5mm"></div>';
+  var itemRows='';
+  for(var j=0;j<d.items.length;j++){ var it=d.items[j];
+    itemRows+='<div class="g7 rh">'
+      +'<div class="cell" style="font-size:9.4pt">'+esc(it.name)+'</div>'
+      +'<div class="cell c" style="font-size:8.8pt">'+esc(it.note)+'</div>'
+      +'<div class="cell r">'+((it.qty!=='' && it.qty!=null)?esc(String(it.qty)):'')+'</div>'
+      +'<div class="cell c">'+esc(it.unit)+'</div>'
+      +'<div class="cell r">'+(num(it.unitPrice)?fmt(it.unitPrice):'')+'</div>'
+      +'<div class="cell r">'+(num(it.partsPrice)?fmt(it.partsPrice):'')+'</div>'
+      +'<div class="cell r last">'+(num(it.labor)?fmt(it.labor):'')+'</div></div>';
+  }
+  function totRow(label,val,bold){
+    return '<div class="g7 rh"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>'
+      +'<div class="cell c" style="font-weight:600">'+label+'</div>'
+      +'<div class="cell r" style="font-weight:'+(bold?700:500)+'">'+val+'</div>'
+      +'<div class="cell r last">'+(label==='－計－'?fmt(t.labor):'')+'</div></div>';
+  }
+  var fill=Math.max(0, 11-d.items.length), fillRows='';
+  for(var f=0;f<fill;f++) fillRows+='<div class="g7 rh"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell last"></div></div>';
+
+  return ''
+  +'<div class="iv">'
+    /* header */
+    +'<div style="display:flex;gap:4mm">'
+      +'<div style="flex:1.25;display:flex;flex-direction:column">'
+        +'<div style="text-align:center;font-size:16pt;font-weight:700;letter-spacing:4px;margin-bottom:2.5mm">ご請求書（控）</div>'
+        +'<div style="border:1.4px solid #2a2f37;border-radius:3mm;height:33mm;display:flex;align-items:center;padding:0 6mm">'
+          +'<span style="font-size:16pt;font-weight:600">'+(esc(d.customer)||'&nbsp;')+'</span>'
+          +'<span style="font-size:13pt;margin-left:5mm">様</span></div>'
+      +'</div>'
+      +'<div style="flex:1;display:flex;flex-direction:column;align-items:flex-end;text-align:right">'
+        +'<div style="font-size:10pt;margin-bottom:1mm">伝票<span style="font-size:8.5pt">No.</span> <span style="border-bottom:1px dotted #555;padding:0 3mm">'+esc(d.slipNo)+'</span><span style="margin-left:4mm">Page '+esc(d.page)+'</span></div>'
+        +'<div style="font-size:11pt;font-weight:600;border-bottom:1px dotted #555;padding-bottom:.5mm;margin-bottom:1.5mm">'+esc(d.era)+' '+esc(d.year)+'年 '+esc(d.month)+'月 '+esc(d.day)+'日</div>'
+        +'<div style="font-size:7.4pt;letter-spacing:.2px">'+esc(c.service)+'</div>'
+        +'<div style="font-size:7.6pt;letter-spacing:1px">'+esc(c.agency)+'</div>'
+        +'<div style="font-size:11.5pt;font-weight:700;letter-spacing:1px;margin-top:.5mm">'+esc(c.nameEn)+'</div>'
+        +'<div style="font-size:9pt;font-weight:600">'+esc(c.nameJa)+'</div>'
+        +'<div style="font-size:8.5pt">'+esc(c.rep)+'</div>'
+        +'<div style="font-size:8pt;margin-top:.3mm">〒'+esc(c.zip)+'</div>'
+        +'<div style="font-size:8pt">'+esc(c.address)+'</div>'
+        +'<div style="font-size:8pt">'+esc(c.tel)+'　<span style="letter-spacing:.3px">'+esc(c.regNo)+'</span></div>'
+        +'<div style="display:flex;gap:1.5mm;margin-top:1.5mm">'+stamps+'</div>'
+      +'</div>'
+    +'</div>'
+    /* 請求金額 */
+    +'<div style="margin-top:4mm;display:flex"><div style="display:flex;align-items:stretch;border:1.4px solid #2a2f37;border-radius:2mm;overflow:hidden;width:108mm;height:12mm">'
+      +'<div style="display:flex;align-items:center;padding:0 4mm;font-size:11pt;font-weight:600;border-right:1.4px solid #2a2f37">ご請求金額</div>'
+      +'<div style="flex:1;display:flex;align-items:center;padding:0 5mm;font-size:15pt;font-weight:700;font-variant-numeric:tabular-nums">¥'+fmt(t.total)+'-</div></div></div>'
+    /* 車両情報 */
+    +'<div style="margin-top:3mm;border:1.3px solid #2a2f37;border-radius:2mm;overflow:hidden">'
+      +'<div class="gv" style="border-bottom:1px solid #2a2f37">'
+        +'<div class="cell c" style="height:7mm;font-weight:600;font-size:8.6pt">登録番号</div>'
+        +'<div class="cell c" style="height:7mm;font-weight:600;font-size:8.6pt">車　名</div>'
+        +'<div class="cell c" style="height:7mm;font-weight:600;font-size:8.6pt">型　式</div>'
+        +'<div class="cell c" style="height:7mm;font-weight:600;font-size:8.6pt">原動機型式</div>'
+        +'<div class="cell c" style="height:7mm;font-weight:600;font-size:8.6pt">車台番号</div>'
+        +'<div class="cell c" style="height:7mm;font-weight:600;font-size:8.6pt">初年度登録</div>'
+        +'<div class="cell c last" style="height:7mm;font-weight:600;font-size:8.6pt">走行距離</div></div>'
+      +'<div class="gv">'
+        +'<div class="cell c" style="height:7.5mm">'+esc(d.vehicle.reg)+'</div>'
+        +'<div class="cell c" style="height:7.5mm">'+esc(d.vehicle.name)+'</div>'
+        +'<div class="cell c" style="height:7.5mm">'+esc(d.vehicle.model)+'</div>'
+        +'<div class="cell c" style="height:7.5mm">'+esc(d.vehicle.engine)+'</div>'
+        +'<div class="cell c" style="height:7.5mm">'+esc(d.vehicle.chassis)+'</div>'
+        +'<div class="cell c" style="height:7.5mm">'+esc(d.vehicle.firstReg)+'</div>'
+        +'<div class="cell c last" style="height:7.5mm">'+esc(d.vehicle.mileage)+'</div></div>'
+    +'</div>'
+    /* 明細 */
+    +'<div style="margin-top:3mm;border:1.4px solid #2a2f37">'
+      +'<div class="g7" style="border-bottom:1.2px solid #2a2f37">'
+        +'<div class="cell"></div><div class="cell"></div>'
+        +'<div class="cell c" style="height:7mm;font-weight:600">数量</div>'
+        +'<div class="cell c" style="font-weight:600">単位</div>'
+        +'<div class="cell c" style="font-weight:600">単価</div>'
+        +'<div class="cell c" style="font-weight:600">部品価格</div>'
+        +'<div class="cell c last" style="font-weight:600">技術料</div></div>'
+      +itemRows
+      +totRow('－計－',fmt(t.parts),false)
+      +totRow('税抜計',fmt(t.beforeTax),false)
+      +totRow('消費税',fmt(t.tax),false)
+      +totRow('総合計',fmt(t.total),true)
+      +fillRows
+    +'</div>'
+    /* 下部サマリー */
+    +'<div style="margin-top:3mm;display:grid;grid-template-columns:66mm 1fr">'
+      +'<div style="border:1.3px solid #2a2f37;border-right:none;display:grid;grid-template-rows:1fr 1fr">'
+        +'<div style="display:grid;grid-template-columns:1fr 1fr 1fr"><div style="border-right:1px solid #2a2f37"></div><div style="border-right:1px solid #2a2f37"></div><div></div></div>'
+        +'<div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid #2a2f37"><div style="border-right:1px solid #2a2f37"></div><div style="border-right:1px solid #2a2f37"></div><div></div></div></div>'
+      +'<div style="border:1.3px solid #2a2f37;display:grid;grid-template-rows:1fr 1fr">'
+        +'<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1.1fr;border-bottom:1px solid #2a2f37">'
+          +'<div class="cell c" style="height:7mm;font-weight:600;font-size:8.6pt">部品等計</div>'
+          +'<div class="cell c" style="height:7mm;font-weight:600;font-size:8.6pt">技術料</div>'
+          +'<div class="cell c" style="height:7mm;font-weight:600;font-size:8.6pt">税抜計</div>'
+          +'<div class="cell c" style="height:7mm;font-weight:600;font-size:8.6pt">消費税</div>'
+          +'<div class="cell c last" style="height:7mm;font-weight:600;font-size:8.6pt">総合計</div></div>'
+        +'<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1.1fr">'
+          +'<div class="cell r" style="height:8mm;font-size:9.6pt">'+fmt(t.parts)+'</div>'
+          +'<div class="cell r" style="height:8mm;font-size:9.6pt">'+fmt(t.labor)+'</div>'
+          +'<div class="cell r" style="height:8mm;font-size:9.6pt">'+fmt(t.beforeTax)+'</div>'
+          +'<div class="cell r" style="height:8mm;font-size:9.6pt">'+fmt(t.tax)+'</div>'
+          +'<div class="cell r last" style="height:8mm;font-weight:700;font-size:9.6pt">¥'+fmt(t.total)+'</div></div></div>'
+    +'</div>'
+    /* 特記事項 */
+    +'<div style="margin-top:2.5mm"><div style="font-size:7.6pt;margin-bottom:.5mm">（特記事項）</div>'
+      +'<div style="border:1.3px solid #2a2f37;border-radius:1.5mm;min-height:16mm;padding:2mm 3mm;font-size:8.6pt;white-space:pre-wrap">'+esc(d.notes)+'</div></div>'
+    /* footer */
+    +'<div style="margin-top:2.5mm;font-size:8pt;line-height:1.5"><div>'+esc(c.bank)+'</div><div>消費税　'+esc(d.taxRate)+'%</div></div>'
+  +'</div>';
+}
+
+/* ============== 明細リストDOM ============== */
+function itemRowHTML(it, idx, last){
+  return '<div class="item'+(it.taxable?'':' nontax')+'" data-id="'+it.id+'">'
+    +'<div class="r1"><div class="n"><input class="inp" data-field="name" placeholder="品名" value="'+esc(it.name)+'"></div>'
+      +'<div class="nt"><input class="inp" data-field="note" placeholder="備考(交換/点検等)" value="'+esc(it.note)+'"></div></div>'
+    +'<div class="fields">'
+      +'<div class="fld qty"><span class="l">数量</span><input class="inp" data-field="qty" inputmode="decimal" value="'+esc(it.qty)+'"></div>'
+      +'<div class="fld unit"><span class="l">単位</span><input class="inp" data-field="unit" list="units" value="'+esc(it.unit)+'"></div>'
+      +'<div class="fld money"><span class="l">単価</span><input class="inp" data-field="unitPrice" inputmode="numeric" value="'+(it.unitPrice||'')+'"></div>'
+      +'<div class="fld money"><span class="l">部品価格</span><input class="inp" data-field="partsPrice" inputmode="numeric" value="'+(it.partsPrice||'')+'"></div>'
+      +'<div class="fld money"><span class="l">技術料</span><input class="inp" data-field="labor" inputmode="numeric" value="'+(it.labor||'')+'"></div>'
+    +'</div>'
+    +'<div class="ctrl"><label class="chk'+(it.taxable?'':' nontax')+'"><input type="checkbox" data-field="taxable" '+(it.taxable?'checked':'')+'>'+(it.taxable?'課税':'非課税')+'</label>'
+      +'<div class="ops">'
+        +'<button class="opbtn" data-act="up"'+(idx===0?' disabled':'')+'>↑</button>'
+        +'<button class="opbtn" data-act="down"'+(last?' disabled':'')+'>↓</button>'
+        +'<button class="opbtn delbtn" data-act="del">削除</button>'
+      +'</div></div></div>';
+}
+function rebuildItems(){
+  var el=$('itemsList');
+  if(state.inv.items.length===0){ el.innerHTML='<div class="empty">上のボタンか「＋ 行を追加」で明細を入れてください</div>'; return; }
+  var h=''; for(var i=0;i<state.inv.items.length;i++) h+=itemRowHTML(state.inv.items[i], i, i===state.inv.items.length-1);
+  el.innerHTML=h;
+}
+
+/* ============== レンダリング ============== */
+function renderTotals(t){
+  $('t_parts').textContent='¥'+fmt(t.parts);
+  $('t_labor').textContent='¥'+fmt(t.labor);
+  $('t_beforeTax').textContent='¥'+fmt(t.beforeTax);
+  $('t_tax').textContent='¥'+fmt(t.tax);
+  $('t_taxlabel').textContent='消費税（課税対象 ¥'+fmt(t.taxableBase)+'）';
+  $('t_total').textContent='¥'+fmt(t.total)+'-';
+}
+function renderPreview(){
+  var t=calcTotals(state.inv.items, state.inv.taxRate);
+  var html=invoiceHTML(state.inv, state.company, t);
+  $('previewInner').innerHTML=html;
+  $('printArea').innerHTML=html;
+  applyScale();
+}
+function applyScale(){
+  var s=Math.max(0.2, Math.min(3, state.autoScale*state.zoom));
+  $('previewInner').style.transform='scale('+s+')';
+  $('previewSizer').style.width=(PAGE_W*s)+'px';
+  $('previewSizer').style.height=(PAGE_H*s)+'px';
+  $('zPct').textContent=Math.round(s*100)+'%';
+}
+function renderAll(){ renderTotals(calcTotals(state.inv.items, state.inv.taxRate)); renderPreview(); }
+
+function renderCompanyView(){
+  var c=state.company;
+  $('companyView').innerHTML=esc(c.nameJa)+'／'+esc(c.tel)+'<br>登録番号 '+esc(c.regNo);
+  $('hSub').textContent=c.nameJa;
+}
+
+/* ============== フォーム⇄状態 ============== */
+function fillForm(){
+  var d=state.inv, c=state.company;
+  $('slipNo').value=d.slipNo; $('page').value=d.page; $('era').value=d.era;
+  $('yy').value=d.year; $('mm').value=d.month; $('dd').value=d.day;
+  $('customer').value=d.customer;
+  $('v_reg').value=d.vehicle.reg; $('v_name').value=d.vehicle.name; $('v_model').value=d.vehicle.model;
+  $('v_engine').value=d.vehicle.engine; $('v_chassis').value=d.vehicle.chassis;
+  $('v_firstReg').value=d.vehicle.firstReg; $('v_mileage').value=d.vehicle.mileage;
+  $('notes').value=d.notes;
+  $('c_service').value=c.service; $('c_agency').value=c.agency; $('c_nameEn').value=c.nameEn;
+  $('c_nameJa').value=c.nameJa; $('c_rep').value=c.rep; $('c_zip').value=c.zip;
+  $('c_tel').value=c.tel; $('c_address').value=c.address; $('c_regNo').value=c.regNo;
+  $('c_bank').value=c.bank; $('c_taxRate').value=c.taxRate;
+  rebuildItems();
+  renderCompanyView();
+  renderAll();
+}
+
+/* ============== localStorage ============== */
+function saveInvoice(){
+  var no=String(state.inv.slipNo||'').trim();
+  if(!no){ toast('伝票No.を入力してください', true); return; }
+  try{
+    var t=calcTotals(state.inv.items, state.inv.taxRate);
+    var payload=Object.assign({}, state.inv, {savedAt:Date.now(), _total:t.total});
+    localStorage.setItem(LS_INV+no, JSON.stringify(payload));
+    toast('伝票No.'+no+' を保存しました');
+  }catch(e){ toast('保存に失敗しました', true); }
+}
+function listInvoices(){
+  var out=[];
+  for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i);
+    if(k.indexOf(LS_INV)===0){ try{ out.push(JSON.parse(localStorage.getItem(k))); }catch(e){} } }
+  out.sort(function(a,b){ return (b.savedAt||0)-(a.savedAt||0); });
+  return out;
+}
+function loadInvoice(inv){
+  var copy=JSON.parse(JSON.stringify(inv)); delete copy.savedAt; delete copy._total;
+  if(!copy.vehicle) copy.vehicle={reg:'',name:'',model:'',engine:'',chassis:'',firstReg:'',mileage:''};
+  if(!copy.items) copy.items=[];
+  copy.items=copy.items.map(function(it){ return Object.assign(blankItem(),it,{id:it.id||uid()}); });
+  state.inv=copy; fillForm(); closeModal(); toast('伝票No.'+copy.slipNo+' を読込みました');
+}
+function deleteInvoice(no){ try{ localStorage.removeItem(LS_INV+no); openModal(); }catch(e){} }
+function saveCompany(){
+  try{ localStorage.setItem(LS_CO, JSON.stringify(state.company)); toast('事業者情報を保存しました'); }
+  catch(e){ toast('保存に失敗しました', true); }
+}
+function loadCompany(){
+  try{ var s=localStorage.getItem(LS_CO); if(s){ state.company=Object.assign({},DEFAULT_COMPANY,JSON.parse(s)); } }catch(e){}
+}
+
+/* ============== モーダル ============== */
+function openModal(){
+  var list=listInvoices(), el=$('invList');
+  if(list.length===0){ el.innerHTML='<div style="color:var(--sub);font-size:13px;padding:24px 0;text-align:center">まだ保存された請求書はありません。<br>「💾 保存」で伝票No.ごとに保存できます。</div>'; }
+  else{
+    var h='<div class="inv-list">';
+    for(var i=0;i<list.length;i++){ var v=list[i];
+      h+='<div class="inv-item"><div><div class="nm">No.'+esc(v.slipNo)+'　'+(esc(v.customer)||'（無名）')+' 様</div>'
+        +'<div class="mt">'+esc(v.era)+esc(v.year)+'年'+esc(v.month)+'月'+esc(v.day)+'日　/　'+(esc(v.vehicle&&v.vehicle.name)||'車名なし')+'　/　¥'+fmt(v._total||0)+'</div></div>'
+        +'<div class="acts"><button class="btn btn-primary" data-load="'+esc(v.slipNo)+'">読込</button>'
+        +'<button class="btn btn-ghost delbtn" data-del="'+esc(v.slipNo)+'">削除</button></div></div>';
+    }
+    h+='</div>'; el.innerHTML=h;
+  }
+  $('overlay').style.display='grid';
+}
+function closeModal(){ $('overlay').style.display='none'; }
+
+/* ============== トースト ============== */
+var toastTimer=null;
+function toast(msg, isErr){
+  var el=$('toast'); el.textContent=msg; el.className='toast show'+(isErr?' err':'');
+  clearTimeout(toastTimer); toastTimer=setTimeout(function(){ el.className='toast'+(isErr?' err':''); }, 2200);
+}
+
+/* ============== イベント ============== */
+function bind(){
+  // presets
+  var pv=$('presets');
+  PRESETS.forEach(function(p){
+    var b=document.createElement('button');
+    b.className='preset'+(p[3]?'':' nontax'); b.textContent=p[0];
+    b.onclick=function(){ state.inv.items.push(blankItem({name:p[1],note:p[2],taxable:p[3]})); rebuildItems(); renderAll(); };
+    pv.appendChild(b);
+  });
+
+  // simple fields -> state
+  function f(id, set){ $(id).addEventListener('input', function(e){ set(e.target.value); renderAll(); }); }
+  f('slipNo', function(v){ state.inv.slipNo=v; });
+  f('page', function(v){ state.inv.page=v; });
+  $('era').addEventListener('change', function(e){ state.inv.era=e.target.value; renderAll(); });
+  f('yy', function(v){ state.inv.year=num(v); });
+  f('mm', function(v){ state.inv.month=num(v); });
+  f('dd', function(v){ state.inv.day=num(v); });
+  f('customer', function(v){ state.inv.customer=v; });
+  f('v_reg', function(v){ state.inv.vehicle.reg=v; });
+  f('v_name', function(v){ state.inv.vehicle.name=v; });
+  f('v_model', function(v){ state.inv.vehicle.model=v; });
+  f('v_engine', function(v){ state.inv.vehicle.engine=v; });
+  f('v_chassis', function(v){ state.inv.vehicle.chassis=v; });
+  f('v_firstReg', function(v){ state.inv.vehicle.firstReg=v; });
+  f('v_mileage', function(v){ state.inv.vehicle.mileage=v; });
+  f('notes', function(v){ state.inv.notes=v; });
+
+  // company fields
+  function cf(id, key){ $(id).addEventListener('input', function(e){ state.company[key]=e.target.value; renderCompanyView(); renderPreview(); }); }
+  cf('c_service','service'); cf('c_agency','agency'); cf('c_nameEn','nameEn'); cf('c_nameJa','nameJa');
+  cf('c_rep','rep'); cf('c_zip','zip'); cf('c_tel','tel'); cf('c_address','address'); cf('c_regNo','regNo'); cf('c_bank','bank');
+  $('c_taxRate').addEventListener('input', function(e){ var r=num(e.target.value); state.company.taxRate=r; state.inv.taxRate=r; renderAll(); });
+
+  // items delegation
+  var list=$('itemsList');
+  list.addEventListener('input', function(e){
+    var t=e.target, field=t.getAttribute('data-field'); if(!field) return;
+    var row=t.closest('[data-id]'); var id=row.getAttribute('data-id');
+    var it=null; for(var i=0;i<state.inv.items.length;i++){ if(state.inv.items[i].id===id){ it=state.inv.items[i]; break; } }
+    if(!it) return;
+    if(field==='qty'){ it.qty=t.value; it.partsPrice=Math.round(num(it.qty)*num(it.unitPrice)); var pp=row.querySelector('[data-field="partsPrice"]'); if(pp) pp.value=it.partsPrice||''; }
+    else if(field==='unitPrice'){ it.unitPrice=num(t.value); it.partsPrice=Math.round(num(it.qty)*num(it.unitPrice)); var pp2=row.querySelector('[data-field="partsPrice"]'); if(pp2) pp2.value=it.partsPrice||''; }
+    else if(field==='partsPrice'){ it.partsPrice=num(t.value); }
+    else if(field==='labor'){ it.labor=num(t.value); }
+    else if(field==='unit'){ it.unit=t.value; }
+    else if(field==='note'){ it.note=t.value; }
+    else if(field==='name'){ it.name=t.value; }
+    renderAll();
+  });
+  list.addEventListener('change', function(e){
+    if(e.target.getAttribute('data-field')!=='taxable') return;
+    var row=e.target.closest('[data-id]'); var id=row.getAttribute('data-id');
+    for(var i=0;i<state.inv.items.length;i++){ if(state.inv.items[i].id===id){
+      state.inv.items[i].taxable=e.target.checked;
+      row.classList.toggle('nontax', !e.target.checked);
+      var lab=row.querySelector('.chk'); lab.classList.toggle('nontax', !e.target.checked);
+      lab.childNodes[1].nodeValue=e.target.checked?'課税':'非課税';
+      break;
+    }}
+    renderAll();
+  });
+  list.addEventListener('click', function(e){
+    var b=e.target.closest('[data-act]'); if(!b) return;
+    var row=b.closest('[data-id]'); var id=row.getAttribute('data-id');
+    var idx=-1; for(var i=0;i<state.inv.items.length;i++){ if(state.inv.items[i].id===id){ idx=i; break; } }
+    if(idx<0) return;
+    var act=b.getAttribute('data-act');
+    if(act==='del'){ state.inv.items.splice(idx,1); }
+    else if(act==='up' && idx>0){ var x=state.inv.items[idx-1]; state.inv.items[idx-1]=state.inv.items[idx]; state.inv.items[idx]=x; }
+    else if(act==='down' && idx<state.inv.items.length-1){ var y=state.inv.items[idx+1]; state.inv.items[idx+1]=state.inv.items[idx]; state.inv.items[idx]=y; }
+    rebuildItems(); renderAll();
+  });
+
+  $('btnAdd').onclick=function(){ state.inv.items.push(blankItem()); rebuildItems(); renderAll(); };
+
+  // header actions
+  $('btnNew').onclick=function(){
+    var n=num(state.inv.slipNo)?String(num(state.inv.slipNo)+1):'';
+    var tr=todayReiwa();
+    state.inv={ slipNo:n, page:'1/1', era:tr.era, year:tr.year, month:tr.month, day:tr.day,
+      customer:'', vehicle:{reg:'',name:'',model:'',engine:'',chassis:'',firstReg:'',mileage:''},
+      taxRate:state.company.taxRate||10, notes:'', items:[] };
+    fillForm(); toast('新規作成しました');
+  };
+  $('btnSave').onclick=saveInvoice;
+  $('btnList').onclick=openModal;
+  $('btnCloseModal').onclick=closeModal;
+  $('overlay').addEventListener('click', function(e){ if(e.target===$('overlay')) closeModal(); });
+  $('invList').addEventListener('click', function(e){
+    var l=e.target.closest('[data-load]'); var d=e.target.closest('[data-del]');
+    if(l){ var no=l.getAttribute('data-load'); var arr=listInvoices(); for(var i=0;i<arr.length;i++){ if(String(arr[i].slipNo)===no){ loadInvoice(arr[i]); return; } } }
+    if(d){ deleteInvoice(d.getAttribute('data-del')); }
+  });
+  $('btnPrint').onclick=function(){ window.print(); };
+  $('btnPrint2').onclick=function(){ window.print(); };
+  $('btnSaveCompany').onclick=saveCompany;
+
+  // company toggle
+  $('btnCompanyToggle').onclick=function(){
+    var ed=$('companyEdit'), vw=$('companyView');
+    if(ed.style.display==='none'){ ed.style.display='flex'; vw.style.display='none'; this.textContent='閉じる'; }
+    else{ ed.style.display='none'; vw.style.display='block'; this.textContent='編集'; }
+  };
+
+  // tabs
+  var main=$('main');
+  document.querySelectorAll('.tabbar .tab').forEach(function(tb){
+    tb.onclick=function(){
+      document.querySelectorAll('.tabbar .tab').forEach(function(x){ x.classList.remove('active'); });
+      tb.classList.add('active'); main.setAttribute('data-tab', tb.getAttribute('data-tab'));
+      setTimeout(measureScale, 30);
+    };
+  });
+
+  // zoom
+  $('zOut').onclick=function(){ state.zoom=Math.max(0.5, +(state.zoom-0.15).toFixed(2)); applyScale(); };
+  $('zIn').onclick=function(){ state.zoom=Math.min(3, +(state.zoom+0.15).toFixed(2)); applyScale(); };
+  $('zFit').onclick=function(){ state.zoom=1; applyScale(); };
+}
+
+/* ============== スケール計測 ============== */
+function measureScale(){
+  var el=$('panelPreview'); if(!el) return;
+  var w=el.clientWidth; if(w<=0) return;
+  state.autoScale=Math.min(1, (w-36)/PAGE_W);
+  applyScale();
+}
+
+/* ============== 初期化 ============== */
+(function init(){
+  loadCompany();
+  bind();
+  fillForm();
+  measureScale();
+  if(window.ResizeObserver){ new ResizeObserver(measureScale).observe($('panelPreview')); }
+  window.addEventListener('resize', measureScale);
+  window.addEventListener('orientationchange', function(){ setTimeout(measureScale,200); });
+})();
+</script>
+<datalist id="units"><option value="個"><option value="本"><option value="台"><option value="式"><option value="L"><option value="セット"></datalist>
+</body>
+</html>
